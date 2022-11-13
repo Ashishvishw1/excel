@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en">
 <?php
-
+session_start();
+if (!isset($_SESSION['login_id'])) {
+  header('location:login.php');
+  # code...
+}
 include "db_con.php";
 $sql="Select * from user";
 $result=mysqli_query($conn,$sql);
